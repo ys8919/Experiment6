@@ -99,8 +99,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                               TextView2.setText("联系人 : "+phoneMap.get(number));
                           }
 
-
-
                     }
                 }
             }
