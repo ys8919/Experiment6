@@ -25,6 +25,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
+import com.example.experiment6.RegexUtils;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "MainActivity";
     public static final int PASS_0 = 0;
@@ -77,11 +80,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 number=s.toString().replace(" ", "");
-                if (number.length() != 11) {
+                if (!RegexUtils.isTel(number.toString())&&!RegexUtils.isMobileExact(number.toString())) {
                     //显示错误提示
+                   // if(!RegexUtils.isMobileExact(s.toString())){
+                        layoutTNumber.setError("格式不正确");
+                        layoutTNumber.setErrorEnabled(true);
+                   // }
 
-                    layoutTNumber.setError("格式不正确");
-                    layoutTNumber.setErrorEnabled(true);
                 } else {
                     Button.setEnabled(Boolean.TRUE);
                     layoutTNumber.setErrorEnabled(false);
